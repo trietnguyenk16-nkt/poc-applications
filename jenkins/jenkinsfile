@@ -44,7 +44,7 @@ pipeline {
 	   steps {
 		sh """
   			source jenkinsenv/bin/activate
-     			sudo \\cp -R portal /var/lib/jenkins/workspace/django-poc
+     		sudo \\cp -R portal /var/lib/jenkins/workspace/django-poc
 			cd /var/lib/jenkins/workspace/django-poc
    			python3.8 setup.py sdist
     		"""
