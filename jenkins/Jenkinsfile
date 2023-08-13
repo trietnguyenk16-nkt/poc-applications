@@ -88,13 +88,10 @@ pipeline {
 		        cd /var/lib/jenkins/workspace/poc-pipeline
 		        sudo rm -f `ls -t *.tar.gz| head -1`
 		    """
-		}
-
-		steps {
-			sh """
-   				cd ${env.JENKINS_HOME}/jobs/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}/archive
-			        sudo \\mv `ls -t *.tar.gz| head -1` /home/artifactory
-   			"""
+		    sh """
+   			cd ${env.JENKINS_HOME}/jobs/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}/archive
+			sudo \\mv `ls -t *.tar.gz| head -1` /home/artifactory
+   		    """
 		}
 	}
     }
