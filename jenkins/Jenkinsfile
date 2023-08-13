@@ -94,6 +94,11 @@ pipeline {
    		    """
 		}
 	}
+	stage("Build Management and Deploy to Q Env") {
+            steps {
+                build quietPeriod: 3, job: 'poc-pipeline-2', parameters: [string(name: 'VERSION', value: '20230813.255')]
+            }
+	}
     }
     post {
 	always {
