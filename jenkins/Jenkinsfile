@@ -96,7 +96,12 @@ pipeline {
 	}
 	stage("Build Management and Deploy to Q Env") {
             steps {
-                build quietPeriod: 3, job: 'poc-pipeline-2', parameters: [string(name: 'VERSION', value: '20230813.255')]
+		sh "cd /home/artifactory"
+		environment {
+			VERSION_FULL = sh "ls -t *.tar.gz| head -1"
+		}
+                //build quietPeriod: 3, job: 'poc-pipeline-2', parameters: [string(name: 'VERSION_FULL', value: '20230813.255')]
+		build quietPeriod: 3, job: 'poc-pipeline-2', parameters: [string(name: 'VERSION_FULL', value: '${env.VERSION_FULL}')]
             }
 	}
     }
