@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 /* Header */
  .supergraphic::before {
         background-image:
@@ -86,5 +90,50 @@ hr {
 }
 /* End Content */
 
+/* Login Page Specific Styles */
+body {
+    background-color: #f0f2f5; /* Light background for the login page context */
+}
 
+/* Login Container and Card Styling */
+.login-card { /* Updated selector */
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+}
 
+/* Card Title Styling */
+h4#dialog-title.card-title { /* More specific selector for the login card title */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+/* Input Field and Button Styling */
+.card-body .input-group .form-control { /* Scoped to new card structure */
+    border-radius: 0.25rem;
+}
+
+#button-action {
+    width: 100%;
+    padding: 0.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* "Not having account?" Section Styling */
+/* Using a class added to the div in HTML would be more robust than :has() if browser compatibility is a concern */
+.card-body div:has(> p:contains("Not having account?")) { /* Targeting the div containing the specified p and a */
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.card-body div:has(> p:contains("Not having account?")) > p {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.card-body div:has(> p:contains("Not having account?")) > a {
+    font-size: 0.9rem;
+}
